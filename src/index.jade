@@ -1,0 +1,16 @@
+doctype html
+html(
+  lang="en"
+  ng-app="app"
+)
+  head
+    meta(charset="utf8")
+    title App
+    meta(name="description", content="")
+
+  body
+    div(ui-view="main")
+
+    script(src="/js/vendor.js")
+    script(src="/js/templates.js")
+    script(src="/js/app.js")
