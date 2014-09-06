@@ -1,5 +1,5 @@
 jade = require 'gulp-jade'
-template_cache = require 'gulp-angular-templatecache'
+templateCache = require 'gulp-angular-templatecache'
 
 module.exports = (gulp) ->
   gulp.task 'templates', ->
@@ -10,5 +10,7 @@ module.exports = (gulp) ->
         cwd: './src'
       })
       .pipe jade()
-      .pipe template_cache standalone: true
+      .pipe templateCache
+        standalone: true
+        root: '/'
       .pipe gulp.dest 'build/js'
