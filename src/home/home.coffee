@@ -5,9 +5,9 @@ angular.module 'app.home', [
 .config (
   $stateProvider
 ) ->
-  $stateProvider.state '/home',
+  $stateProvider.state 'home',
     url: '/home'
     views:
       'main':
         controller: 'HomeController'
-        templateUrl: 'home/home.html'
+        templateUrl: '/home/home.html'
