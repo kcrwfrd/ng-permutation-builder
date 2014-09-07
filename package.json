@@ -23,6 +23,7 @@
     "karma": "^0.12.23",
     "karma-coffee-preprocessor": "^0.2.1",
     "karma-phantomjs-launcher": "^0.1.4",
-    "rimraf": "^2.2.8"
+    "rimraf": "^2.2.8",
+    "run-sequence": "^0.3.6"
   }
 }

@@ -1,4 +1,5 @@
 fs = require 'fs'
+runSequence = require 'run-sequence'
 
 module.exports = (gulp) ->
   # Let's load all of our gulp tasks
@@ -10,21 +11,29 @@ module.exports = (gulp) ->
     # Load and execute the task definition
     require('./lib/gulp/' + file)(gulp)
 
-  gulp.task 'default', [
-    'build'
-    'karma:dev'
-    'watch'
-    'webserver'
-  ]
+  # Note: runSequence will be obviated by Gulp 4
+  # See https://github.com/gulpjs/gulp/issues/355
 
-  # Ensure that clean finishes first
-  gulp.task 'build', [
-    'clean'
-  ], ->
-    gulp.start(
-      'coffeelint'
-      'coffee:dev'
-      'vendor'
-      'index'
-      'templates'
+  gulp.task 'default', (done) ->
+    runSequence(
+      'build'
+      [
+        'watch'
+        'webserver'
+      ]
+      'karma'
+      done
+    )
+
+  gulp.task 'build', (done) ->
+    runSequence(
+      'clean'
+      [
+        'coffeelint'
+        'coffee:dev'
+        'vendor'
+        'index'
+        'templates'
+      ]
+      done
     )
