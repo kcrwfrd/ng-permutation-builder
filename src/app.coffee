@@ -1,6 +1,6 @@
 angular.module 'app', [
-  'templates'
   'app.home'
+  'templates'
   'ui.router'
 ]
 
