@@ -1,12 +1,11 @@
 {
-  "name": "comparator-ui",
-  "description": "Comparator UI",
+  "name": "ng-coffeeplate",
   "version": "0.0.0",
   "authors": [
     "Kevin Crawford"
   ],
-  "homepage": "http://kvcrawford.github.io",
-  "private": true,
+  "homepage": "https://github.com/kvcrawford/ng-coffeeplate",
+  "private": false,
   "dependencies": {
     "angular": "~1.2.21",
     "lodash": "~2.4.1",

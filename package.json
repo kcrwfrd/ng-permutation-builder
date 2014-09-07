@@ -1,8 +1,8 @@
 {
   "author": "Kevin Crawford",
-  "name": "comparator-ui",
-  "version": "0.0.1",
-  "homepage": "http://kvcrawford.github.io/",
+  "name": "ng-coffeeplate",
+  "version": "0.0.0",
+  "homepage": "https://github.com/kvcrawford/ng-coffeeplate",
   "dependencies": {},
   "devDependencies": {
     "coffee-script": "^1.7.1",
@@ -12,10 +12,8 @@
     "gulp-coffee": "^1.4.3",
     "gulp-coffeelint": "^0.3.3",
     "gulp-concat": "^2.2.0",
-    "gulp-connect": "^2.0.6",
     "gulp-jade": "^0.7.0",
     "gulp-livereload": "^2.1.1",
-    "gulp-load": "^0.1.1",
     "gulp-rimraf": "^0.1.0",
     "gulp-uglify": "^0.3.0",
     "gulp-util": "^3.0.0",
