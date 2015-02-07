@@ -9,7 +9,7 @@ module.exports = (config) ->
     files: [
       'build/js/vendor.js'
       'build/js/app.js'
-      'vendor/angular-mocks/angular-mocks.js'
+      'vendor/bower_components/angular-mocks/angular-mocks.js'
       'src/**/*.{mock,spec}.coffee'
     ]
 
