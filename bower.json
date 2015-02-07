@@ -7,11 +7,11 @@
   "homepage": "https://github.com/kvcrawford/ng-coffeeplate",
   "private": false,
   "dependencies": {
-    "angular": "~1.2.21",
-    "lodash": "~2.4.1",
-    "angular-ui-router": "~0.2.10"
+    "angular": "1.3.x",
+    "lodash": "3.1.x",
+    "angular-ui-router": "0.2.x"
   },
   "devDependencies": {
-    "angular-mocks": "~1.2.23"
+    "angular-mocks": "1.3.x"
   }
 }
