@@ -1,7 +1,25 @@
 {
-  "author": "Kevin Crawford",
   "name": "ng-coffeeplate",
   "version": "0.0.0",
+  "description": "Boilerplate Gulp-based build system for projects built on AngularJS with Coffeescript.",
+  "main": "gulpfile.coffee",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:kvcrawford/ng-coffeeplate.git"
+  },
+  "keywords": [
+    "gulp",
+    "angularjs",
+    "coffeescript"
+  ],
+  "author": "Kevin Crawford",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kvcrawford/ng-coffeeplate/issues"
+  },
   "homepage": "https://github.com/kvcrawford/ng-coffeeplate",
   "dependencies": {},
   "devDependencies": {
