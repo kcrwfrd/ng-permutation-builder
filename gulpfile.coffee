@@ -1,7 +1,8 @@
 fs = require 'fs'
+gulp = require 'gulp'
 runSequence = require 'run-sequence'
 
-module.exports = (gulp) ->
+module.exports = do ->
   # Let's load all of our gulp tasks
   fs.readdirSync('lib/gulp').forEach (file) ->
 
@@ -37,3 +38,5 @@ module.exports = (gulp) ->
       ]
       done
     )
+
+  return gulp
