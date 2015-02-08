@@ -36,6 +36,11 @@ module.exports = (gulp) ->
       'index:dev'
     ]
 
+    # Styles
+    gulp.watch 'styles/**/*.scss', [
+      'sass:dev'
+    ]
+
     # Gulp files
     gulp.watch [
       'lib/gulp/*.coffee'
