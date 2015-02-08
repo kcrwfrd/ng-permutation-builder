@@ -32,6 +32,7 @@ module.exports = do ->
       [
         'coffeelint'
         'coffee:dev'
+        'sass:dev'
         'vendor:dev'
         'index:dev'
         'templates:dev'
@@ -45,6 +46,7 @@ module.exports = do ->
       [
         'coffeelint'
         'coffee:dist'
+        'sass:dist'
         'vendor:dist'
         'index:dist'
         'templates:dist'
