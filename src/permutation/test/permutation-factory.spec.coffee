@@ -42,6 +42,16 @@ describe 'permutationFactory:', ->
 
       expect(permutations).toEqual expected_result
 
+    it 'Should ignore empty attributes at the end of the object.', ->
+      permutable_attributes =
+        name: ['foo', 'bar']
+        attr: ['biz', 'bat']
+        empty: []
+
+      permutations = permutationFactory.permute permutable_attributes
+
+      expect(permutations).toEqual expected_result
+
     it 'Should invoke an optional callback for each permutation', ->
       callback = jasmine.createSpy 'callback'
 
