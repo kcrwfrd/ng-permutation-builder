@@ -1,7 +1,7 @@
 {
   "name": "ng-coffeeplate",
   "version": "0.0.0",
-  "description": "Boilerplate Gulp-based build system for projects built on AngularJS with Coffeescript.",
+  "description": "Angular app boilerplate and Gulp.js build system with Coffeescript, Jade, SASS, Bootstrap, Karma, and Jasmine.",
   "main": "gulpfile.coffee",
   "scripts": {
     "test": "gulp test"
