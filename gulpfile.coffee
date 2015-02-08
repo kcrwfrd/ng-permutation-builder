@@ -49,6 +49,7 @@ module.exports = do ->
         'index:dist'
         'templates:dist'
       ]
+      done
     )
 
   return gulp
