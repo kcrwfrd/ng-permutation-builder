@@ -1,7 +1,7 @@
 ###
 @name widgetFactory
 @description
-Factory methods for building widgets.
+Where widgets get widgetized.
 ###
 
 angular.module 'app.widget'
