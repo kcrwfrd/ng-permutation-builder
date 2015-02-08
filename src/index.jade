@@ -5,7 +5,8 @@ html(
 )
   head
     meta(charset="utf8")
-    title App
+
+    title #{title}
     meta(name="description", content="")
 
     link(rel="stylesheet", href="/css/app.css")
@@ -13,6 +14,5 @@ html(
   body
     div(ui-view="main")
 
-    script(src="/js/vendor.js")
-    script(src="/js/templates.js")
-    script(src="/js/app.js")
+    each script in scripts
+      script(src="#{script}")
