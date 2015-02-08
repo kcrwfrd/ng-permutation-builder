@@ -17,22 +17,26 @@ angular.module 'app.permutation'
     permutations = []
 
     recurse = (keys, payload = {}, position = 0) ->
+      # We've finished constructing the permutation, exit call stack
+      if position is keys.length
+        permutation = _.clone payload
+        callback? permutation
+        permutations.push permutation
+
+        return
+
+      # Grab the current key
       key = keys[position]
 
       # There are no values for this attribute, skip it
       if permutable_attributes[key].length is 0
-        if position < keys.length - 1
-          recurse keys, payload, position + 1
-        else
-          permutations.push _.clone payload
+        recurse keys, payload, position + 1
 
-      for value in permutable_attributes[key]
-        payload[key] = value
+      # Otherwise, recurse for each possible value of this attribute
+      else
+        for value in permutable_attributes[key]
+          payload[key] = value
 
-        if position is keys.length - 1
-          permutations.push _.clone payload
-
-        else
           recurse keys, payload, position + 1
 
     recurse Object.keys permutable_attributes
