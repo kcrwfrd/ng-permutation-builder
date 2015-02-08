@@ -9,7 +9,8 @@ describe 'permutationFactory:', ->
     permutationFactory = _permutationFactory_
 
   describe 'permute:', ->
-    expected_result = [
+    # Expected result for 2*2
+    result_2x2 = [
       name: 'foo'
       attr: 'biz'
     ,
@@ -23,14 +24,49 @@ describe 'permutationFactory:', ->
       attr: 'bat'
     ]
 
-    it 'Should generate 4 permutations from 2 properties with 2 values each.', ->
+    it 'Should generate 4 permutations from 2*2 attributes.', ->
       permutable_attributes =
         name: ['foo', 'bar']
         attr: ['biz', 'bat']
 
       permutations = permutationFactory.permute permutable_attributes
 
-      expect(permutations).toEqual expected_result
+      expect(permutations).toEqual result_2x2
+
+    it 'Should generate 6 permutations from 2*1*0*3 attributes.', ->
+      permutable_attributes =
+        name: ['foo', 'bar']
+        type: ['biz']
+        empty: []
+        desc: ['bing', 'bang', 'boom']
+
+      permutations = permutationFactory.permute permutable_attributes
+
+      expect(permutations).toEqual [
+        name: 'foo'
+        type: 'biz'
+        desc: 'bing'
+      ,
+        name: 'foo'
+        type: 'biz'
+        desc: 'bang'
+      ,
+        name: 'foo'
+        type: 'biz'
+        desc: 'boom'
+      ,
+        name: 'bar'
+        type: 'biz'
+        desc: 'bing'
+      ,
+        name: 'bar'
+        type: 'biz'
+        desc: 'bang'
+      ,
+        name: 'bar'
+        type: 'biz'
+        desc: 'boom'
+      ]
 
     it 'Should ignore attributes without any values.', ->
       permutable_attributes =
@@ -40,7 +76,7 @@ describe 'permutationFactory:', ->
 
       permutations = permutationFactory.permute permutable_attributes
 
-      expect(permutations).toEqual expected_result
+      expect(permutations).toEqual result_2x2
 
     it 'Should ignore empty attributes at the end of the object.', ->
       permutable_attributes =
@@ -50,7 +86,7 @@ describe 'permutationFactory:', ->
 
       permutations = permutationFactory.permute permutable_attributes
 
-      expect(permutations).toEqual expected_result
+      expect(permutations).toEqual result_2x2
 
     it 'Should invoke an optional callback for each permutation', ->
       callback = jasmine.createSpy 'callback'
@@ -64,4 +100,4 @@ describe 'permutationFactory:', ->
       expect(callback.calls.count()).toBe 4
 
       for i in [0..3]
-        expect(callback.calls.argsFor(i)).toEqual [expected_result[i]]
+        expect(callback.calls.argsFor(i)).toEqual [result_2x2[i]]
