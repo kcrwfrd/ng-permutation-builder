@@ -6,4 +6,11 @@ module.exports = (gulp) ->
       .pipe webserver
         fallback: 'index.html'
         host: 'localhost'
+        port: 4040
+
+  gulp.task 'webserver:dist', ->
+    return gulp.src './dist'
+      .pipe webserver
+        fallback: 'index.html'
+        host: 'localhost'
         port: 8080
