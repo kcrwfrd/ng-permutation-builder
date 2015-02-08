@@ -17,7 +17,7 @@ module.exports = do ->
 
   gulp.task 'default', (done) ->
     runSequence(
-      'build'
+      'build:dev'
       [
         'watch'
         'webserver'
@@ -26,17 +26,29 @@ module.exports = do ->
       done
     )
 
-  gulp.task 'build', (done) ->
+  gulp.task 'build:dev', (done) ->
     runSequence(
-      'clean'
+      'clean:dev'
       [
         'coffeelint'
         'coffee:dev'
-        'vendor'
-        'index'
-        'templates'
+        'vendor:dev'
+        'index:dev'
+        'templates:dev'
       ]
       done
+    )
+
+  gulp.task 'build:dist', (done) ->
+    runSequence(
+      'clean:dist'
+      [
+        'coffeelint'
+        'coffee:dist'
+        'vendor:dist'
+        'index:dist'
+        'templates:dist'
+      ]
     )
 
   return gulp

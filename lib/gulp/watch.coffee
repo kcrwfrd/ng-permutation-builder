@@ -20,7 +20,7 @@ module.exports = (gulp) ->
 
     # Vendor scripts
     gulp.watch 'lib/gulp/vendor.coffee', [
-      'vendor'
+      'vendor:dev'
     ]
 
     # Templates
@@ -28,12 +28,12 @@ module.exports = (gulp) ->
       'src/**/*.jade'
       '!src/index.jade'
     ], [
-      'templates'
+      'templates:dev'
     ]
 
     # Index template
     gulp.watch 'src/index.jade', [
-      'index'
+      'index:dev'
     ]
 
     # Gulp files
@@ -41,7 +41,7 @@ module.exports = (gulp) ->
       'lib/gulp/*.coffee'
       'gulpfile.coffee'
     ], [
-      'build'
+      'build:dev'
     ]
 
     # Livereload
