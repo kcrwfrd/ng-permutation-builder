@@ -1,15 +1,25 @@
 form.form-group(
   ng-submit = "submit()"
+  name = "form"
+  ng-class = "{ 'has-error': form.$invalid && form.value.$touched }"
 )
-  label(ng-transclude)
+  label.control-label(
+    for = "{{input_id}}"
+  )
+    span(ng-transclude)
+    span(ng-if="state.is_required") *
 
   .input-group
     input.form-control(
+      id = "{{input_id}}"
+      name = "value"
       type = "text"
       ng-model = "state.value"
+      ng-required = "isRequired()"
     )
 
     .input-group-btn
       button.btn.btn-default(
         type = "submit"
+        ng-disabled = "isDisabled()"
       ) Add
