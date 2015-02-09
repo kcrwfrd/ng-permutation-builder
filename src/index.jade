@@ -12,6 +12,19 @@ html(
     link(rel="stylesheet", href="/css/app.css")
 
   body
+    nav.navbar.navbar-inverse.navbar-fixed-top
+      .container-fluid
+        .navbar-header
+          a.navbar-brand(ui-sref="home") The Widget Factory
+
+        .navbar-collapse.navbar-right
+          ul.nav.navbar-nav
+            li(ui-sref-active="active")
+              a(ui-sref="home") Home
+
+            li(ui-sref-active = "active")
+              a(ui-sref="widget-builder") Widget Builder
+
     div(ui-view="main")
 
     each script in scripts
