@@ -2,9 +2,9 @@ angular.module 'app.home'
 
 .controller 'HomeController', (
   $scope
+  widgetStore
 ) ->
-  $scope.submit = ($widgets) ->
-    console.log 'look at all these widgets we built!'
-    console.table _.map $widgets, (widget) -> return widget.attributes
+  $scope.widgets = widgetStore.getWidgets()
 
-    # Implement your AJAX call here
+  $scope.deleteWidget = (index) ->
+    widgetStore.deleteWidget index
