@@ -22,9 +22,9 @@ module.exports = (gulp) ->
         locals:
           title: 'Production'
           scripts: [
-            '/js/vendor.min.js'
-            '/js/templates.min.js'
-            '/js/app.min.js'
+            './js/vendor.min.js'
+            './js/templates.min.js'
+            './js/app.min.js'
           ]
 
       .pipe gulp.dest 'dist'
