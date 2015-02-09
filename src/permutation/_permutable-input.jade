@@ -1,0 +1,15 @@
+form.form-group(
+  ng-submit = "submit()"
+)
+  label(ng-transclude)
+
+  .input-group
+    input.form-control(
+      type = "text"
+      ng-model = "state.value"
+    )
+
+    .input-group-btn
+      button.btn.btn-default(
+        type = "submit"
+      ) Add
