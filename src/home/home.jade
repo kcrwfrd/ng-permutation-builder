@@ -1,3 +1,32 @@
-.container.text-center
-  h1 Home
-  p.lead Some stuff
+.container-fluid
+  .row
+    .col-lg-3.col-md-4.col-sm-6(
+      ng-repeat = "widget in widgets track by $index"
+    )
+      .well
+        button.close(
+          type = "button"
+          ng-click = "deleteWidget($index)"
+        ) &times;
+
+        h4 Name
+        p {{widget.name}}
+
+        h4 Description
+        p {{widget.description}}
+
+    .col-lg-3.col-md-4.col-sm-6
+      .well.text-center
+        div(ng-switch="widgets.length")
+          p.lead(
+            ng-switch-when = "0"
+          ) You haven't created any widgets yet!
+
+          p.lead(
+            ng-switch-default
+          ) Create More Widgets
+
+        a.btn.btn-default.btn-lg(
+          ui-sref = "widget-builder"
+        )
+          span.glyphicon.glyphicon-plus

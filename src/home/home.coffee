@@ -1,4 +1,5 @@
 angular.module 'app.home', [
+  'app.widget'
   'ui.router'
 ]
 

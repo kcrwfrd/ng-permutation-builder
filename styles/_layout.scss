@@ -1,1 +1,10 @@
 // Add layout styles here
+body {
+  padding-top: 70px;
+}
+
+@media (max-width: $screen-xs-max) {
+  body {
+    padding-top: 167px;
+  }
+}
