@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+  <head>
+    <meta charset="utf8">
+    <title>Production</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="/css/app.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header"><a ui-sref="home" class="navbar-brand">The Widget Factory</a></div>
+        <div class="navbar-collapse navbar-right">
+          <ul class="nav navbar-nav">
+            <li ui-sref-active="active"><a ui-sref="home">Home</a></li>
+            <li ui-sref-active="active"><a ui-sref="widget-builder">Widget Builder</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div ui-view="main"></div>
+    <script src="/js/vendor.min.js"></script>
+    <script src="/js/templates.min.js"></script>
+    <script src="/js/app.min.js"></script>
+  </body>
+</html>
