@@ -38,10 +38,10 @@ angular.module 'app.widget'
   $scope.buildPermutations = (permutable_attributes) ->
     $scope.state.widgets =
       widgetFactory.buildPermutations(
-        $scope.state.common_attributes
         permutable_attributes
+        $scope.state.common_attributes
       )
 
   $scope.submit = ->
     $scope.onSubmit
-      widgets: $scope.state.widgets
+      $widgets: $scope.state.widgets
