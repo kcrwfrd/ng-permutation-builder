@@ -20,7 +20,7 @@ module.exports = (gulp) ->
       .pipe jade
         pretty: true
         locals:
-          title: 'Production'
+          title: 'The Widget Factory'
           scripts: [
             './js/vendor.min.js'
             './js/templates.min.js'
