@@ -27,13 +27,6 @@ describe 'widgetFactory:', ->
 
       widgets = widgetFactory.buildPermutations permutable_attributes
 
-    it 'Should return 4 widget model instances.', ->
-      expect(widgets.length).toBe 4
-
-      expect(
-        _.every widgets, (widget) -> return widget instanceof Widget
-      ).toBe true
-
     it 'Should call permutationFactory.permute with the correct arguments to generate permutations.', ->
       # Permutable attributes are first arg
       expect(
@@ -46,10 +39,7 @@ describe 'widgetFactory:', ->
       ).toBe 'function'
 
     it 'Should return 4 widgets with correct attributes.', ->
-      widget_attributes = _.map widgets, (widget) ->
-        return widget.attributes
-
-      expect(widget_attributes).toEqual [
+      expect(widgets).toEqual [
         name: 'foo'
         desc: 'biz'
       ,

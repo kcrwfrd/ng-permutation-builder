@@ -11,9 +11,10 @@ angular.module 'app.widget'
 ) ->
 
   build: (attributes) ->
-    # Right now you could perform some validation logic
+    # Right now you could perform some validation logic,
+    # instantiate a model constructor, etc.
 
-    return new Widget attributes
+    return attributes
 
   ###
   @name buildPermutations
