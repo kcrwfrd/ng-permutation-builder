@@ -1,14 +1,5 @@
 .container-fluid
   .row
-    .col-md-6.col-md-offset-3
-      .jumbotron.text-center(ng-if="widgets.length === 0")
-        p.lead You haven't created any widgets yet!
-
-        a.btn.btn-default.btn-lg(
-          ui-sref = "widget-builder"
-        ) Get Started
-
-  .row(ng-if="widgets.length > 0")
     .col-lg-3.col-md-4.col-sm-6(
       ng-repeat = "widget in widgets track by $index"
     )
@@ -23,3 +14,19 @@
 
         h4 Description
         p {{widget.description}}
+
+    .col-lg-3.col-md-4.col-sm-6
+      .well.text-center
+        div(ng-switch="widgets.length")
+          p.lead(
+            ng-switch-when = "0"
+          ) You haven't created any widgets yet!
+
+          p.lead(
+            ng-switch-default
+          ) Create More Widgets
+
+        a.btn.btn-default.btn-lg(
+          ui-sref = "widget-builder"
+        )
+          span.glyphicon.glyphicon-plus
