@@ -17,7 +17,7 @@ div.row
 
   .col-md-5.col-md-offset-1
     .well
-      h4 {{state.widgets.length}} Widgets Built
+      h4 {{widgets.length}} Widgets Built
 
       h5 Name ({{state.permutable_attributes.name.length}})
       ul.list-unstyled
@@ -31,9 +31,8 @@ div.row
           ng-repeat = "description in state.permutable_attributes.description"
         ) {{description}}
 
-
-
       button.btn.btn-default(
         type = "button"
         ng-click = "submit()"
+        ng-disabled = "widgets.length === 0"
       ) Submit

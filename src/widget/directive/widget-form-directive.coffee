@@ -33,10 +33,11 @@ angular.module 'app.widget'
       name: []
       description: []
 
-    widgets: []
+  # Collection of built widget permutations
+  $scope.widgets = []
 
   $scope.buildPermutations = (permutable_attributes) ->
-    $scope.state.widgets =
+    $scope.widgets =
       widgetFactory.buildPermutations(
         permutable_attributes
         $scope.state.common_attributes
@@ -44,4 +45,4 @@ angular.module 'app.widget'
 
   $scope.submit = ->
     $scope.onSubmit
-      $widgets: $scope.state.widgets
+      $widgets: $scope.widgets
