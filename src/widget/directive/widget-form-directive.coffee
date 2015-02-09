@@ -23,6 +23,7 @@ angular.module 'app.widget'
 
 .controller 'KcWidgetFormController', (
   $scope
+  widgetFactory
 ) ->
   $scope.state =
     common_attributes:
@@ -30,7 +31,7 @@ angular.module 'app.widget'
 
     permutable_attributes:
       name: []
-      thumbnail: []
+      description: []
 
     widgets: []
 

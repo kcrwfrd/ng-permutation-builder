@@ -1,16 +1,5 @@
-form.row(
-  name = "forms.widget"
-  ng-submit = "submit()"
-)
+div.row
   .col-md-6
-    .form-group
-      label Permutation Group Name
-      input.form-control(
-        type = "text"
-        name = "permutation_group_name"
-        ng-model = "state.common_attributes.permutation_group_name"
-      )
-
     kc-permutable-attributes(
       permutable-attributes = "state.permutable_attributes"
       build-permutations = "buildPermutations(permutable_attributes)"
@@ -21,15 +10,30 @@ form.row(
         required
       ) Name
 
-      kc-permutable-image(
-        name = "thumbnail"
-        type = "image"
-      ) Thumbnail
+      kc-permutable-input(
+        name = "description"
+        type = "text"
+      ) Description
 
-  .col-md-4.col-md-offset-2
+  .col-md-5.col-md-offset-1
     .well
-      h2 0 Widgets Built
+      h4 {{state.widgets.length}} Widgets Built
 
-      button(
-        type = "submit"
+      h5 Name ({{state.permutable_attributes.name.length}})
+      ul.list-unstyled
+        li(
+          ng-repeat = "name in state.permutable_attributes.name"
+        ) {{name}}
+
+      h5 Description ({{state.permutable_attributes.description.length}})
+      ul.list-unstyled
+        li(
+          ng-repeat = "description in state.permutable_attributes.description"
+        ) {{description}}
+
+
+
+      button.btn.btn-default(
+        type = "button"
+        ng-submit = "submit()"
       ) Submit
