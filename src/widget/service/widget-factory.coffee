@@ -7,7 +7,6 @@ Where widgets get widgetized.
 angular.module 'app.widget'
 .factory 'widgetFactory', (
   permutationFactory
-  Widget
 ) ->
 
   build: (attributes) ->

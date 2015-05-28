@@ -1,17 +1,14 @@
 describe 'widgetFactory:', ->
   permutationFactory = null
-  Widget = null
   widgetFactory = null
 
   beforeEach module 'app.widget'
 
   beforeEach inject (
     _permutationFactory_
-    _Widget_
     _widgetFactory_
   ) ->
     permutationFactory = _permutationFactory_
-    Widget = _Widget_
     widgetFactory = _widgetFactory_
 
   describe 'buildPermutations:', ->
