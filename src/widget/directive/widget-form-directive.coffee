@@ -13,10 +13,11 @@ Callback handler that decides what to do with the payload
 ###
 
 angular.module 'app.widget'
+
 .directive 'kcWidgetForm', ->
   restrict: 'E'
   controller: 'KcWidgetFormController'
-  templateUrl: '/widget/widget-form.html'
+  templateUrl: '/widget/_widget-form.html'
 
   scope:
     onSubmit: '&onSubmit'
