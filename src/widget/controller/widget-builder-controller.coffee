@@ -4,12 +4,13 @@ angular.module 'app.widget'
   $scope
   $state
   widgetStore
+  WidgetBuilderService
 ) ->
-  $scope.submit = ($widgets) ->
-    console.log 'look at all these widgets we built!'
-    console.table $widgets
+  $scope.WidgetBuilderService = WidgetBuilderService
 
-    # Implement your AJAX call here
-    widgetStore.addWidgets $widgets
+  $scope.submit = ->
+    WidgetBuilderService.createPermutations().then (widgets) ->
+      console.log 'look at all these widgets we built!'
+      console.table widgets
 
-    $state.go 'home'
+      $state.go 'home'
