@@ -1,5 +1,8 @@
 ###
 @name kcPermutableInput
+@description
+Encapsulates view logic for permutable inputs, and makes for flexible, reusable
+components that we can reuse for any type of permutable resource.
 
 @param {String} name - Permutable attribute key
 ###
@@ -24,6 +27,14 @@ angular.module 'app.permutation'
 
     scope.isDisabled = ->
       return _.isEmpty scope.state.value
+
+    ###
+    @name isRequired
+    @description
+    An input is no longer required if at least 1 value has already been entered
+
+    @returns {Boolean}
+    ###
 
     scope.isRequired = ->
       return attrs.required? and
