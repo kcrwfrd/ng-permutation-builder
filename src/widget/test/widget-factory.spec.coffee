@@ -49,3 +49,24 @@ describe 'widgetFactory:', ->
         name: 'bar'
         desc: 'bat'
       ]
+
+  describe 'validate:', ->
+    it 'Should return true for a valid widget.', ->
+      widget =
+        name: 'foobar'
+        description: 'bizbat'
+
+      expect(widgetFactory.validate(widget)).toBe true
+
+    it 'Should return false for a widget with an empty name.', ->
+      widget =
+        name: ''
+        description: 'bizbat'
+
+      expect(widgetFactory.validate(widget)).toBe false
+
+    it 'Should return false for a widget with a missing name.', ->
+      widget =
+        description: 'bizbat'
+
+      expect(widgetFactory.validate(widget)).toBe false

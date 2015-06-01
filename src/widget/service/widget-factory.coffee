@@ -16,6 +16,17 @@ angular.module 'app.widget'
     return attributes
 
   ###
+  @name validate
+  @description
+  A widget must have at least a name.
+
+  @returns {Boolean}
+  ###
+
+  validate: (attributes) ->
+    return attributes.name?.length > 0
+
+  ###
   @name buildPermutations
   @description
   Builds permutations of widgets.
