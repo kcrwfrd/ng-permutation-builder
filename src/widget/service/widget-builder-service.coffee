@@ -8,6 +8,7 @@ Drives the business logic of the widget builder UI flow.
 angular.module 'app.widget'
 .factory 'WidgetBuilderService', (
   PermutationBuilderService
+  widgetFactory
   widgetStore
   $q
 ) ->
@@ -18,6 +19,17 @@ angular.module 'app.widget'
       @permutable_attributes =
         name: []
         description: []
+
+    ###
+    @name buildPermutations
+    @description
+    Here, we extend the base method to ensure that we only build valid widgets.
+    ###
+
+    buildPermutations: ->
+      super
+
+      @permutations = _.filter @permutations, widgetFactory.validate
 
     createPermutations: ->
       # Grab the permutations before we empty them

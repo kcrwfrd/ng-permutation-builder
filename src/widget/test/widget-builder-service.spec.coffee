@@ -16,6 +16,16 @@ describe 'WidgetBuilderService:', ->
       name: []
       description: []
 
+  describe 'Build Permutations:', ->
+    it 'Should only build valid permutations.', ->
+      WidgetBuilderService.permutable_attributes =
+        name: []
+        description: ['foobar']
+
+      WidgetBuilderService.buildPermutations()
+
+      expect(WidgetBuilderService.permutations.length).toBe 0
+
   describe 'Create Permutations:', ->
     beforeEach ->
       WidgetBuilderService.permutable_attributes =
