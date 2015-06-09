@@ -4,46 +4,45 @@
       p.lead Let's build some widgets.
 
   .row
-    .col-lg-6.col-md-8.col-sm-6
-      kc-permutation-builder(
-        service = "WidgetBuilderService"
-      )
-        kc-permutable-input(
-          name = "name"
-          type = "text"
-          required
-        ) Name
+    kc-permutation-builder(
+      service = "WidgetBuilderService"
+    )
+      .col-lg-6.col-md-8.col-sm-6
+          kc-permutable-input(
+            name = "name"
+            type = "text"
+            required
+          ) Name
 
-        kc-permutable-input(
-          name = "description"
-          type = "text"
-        ) Description
+          kc-permutable-input(
+            name = "description"
+            type = "text"
+          ) Description
 
-    .col-lg-4.col-md-4.col-sm-6
-      .well
-        h4 {{WidgetBuilderService.permutations.length}} Widgets Built
+      .col-lg-4.col-md-4.col-sm-6
+        .panel.panel-default
+          .panel-heading
+            h4.panel-title {{WidgetBuilderService.permutations.length}} Widgets Built
 
-        h5 Name ({{WidgetBuilderService.permutable_attributes.name.length}})
-        ul.list-unstyled
-          li(
-            ng-repeat = "name in WidgetBuilderService.permutable_attributes.name"
-          ) {{name}}
+          .panel-body
+            kc-permutable-attribute(
+              name = "name"
+            ) Name
 
-        h5 Description ({{WidgetBuilderService.permutable_attributes.description.length}})
-        ul.list-unstyled
-          li(
-            ng-repeat = "description in WidgetBuilderService.permutable_attributes.description"
-          ) {{description}}
+            kc-permutable-attribute(
+              name = "description"
+            ) Description
 
-        .btn-group
-          button.btn.btn-default(
-            type = "button"
-            ng-click = "submit()"
-            ng-disabled = "WidgetBuilderService.permutations.length === 0"
-          ) Submit
+          .panel-footer
+            .btn-group
+              button.btn.btn-primary(
+                type = "button"
+                ng-click = "submit()"
+                ng-disabled = "WidgetBuilderService.permutations.length === 0"
+              ) Submit
 
-          button.btn(
-            type = "button"
-            ng-click = "WidgetBuilderService.initialize()"
-            ng-disabled = "WidgetBuilderService.permutations.length === 0"
-          ) Reset
+              button.btn.btn-default(
+                type = "button"
+                ng-click = "WidgetBuilderService.initialize()"
+                ng-disabled = "WidgetBuilderService.permutations.length === 0"
+              ) Reset
