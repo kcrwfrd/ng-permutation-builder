@@ -1,0 +1,101 @@
+//- Can you spot all the repeating markup? Just imagine if we had more fields!
+.container-fluid
+  .row
+    .col-md-12
+      p.lead Let's build some widgets.
+
+  .row
+    .col-lg-6.col-md-8.col-sm-6
+      form.form-group(
+        ng-submit = "addAttribute('name')"
+        name = "forms.name"
+        ng-class = "{ 'has-error': forms.name.$invalid && forms.name.value.$touched }"
+      )
+        label.control-label(
+          for = "widget_name"
+        ) Name *
+
+        .input-group
+          input.form-control(
+            id = "widget_name"
+            name = "value"
+            type = "text"
+            ng-model = "attributes.name"
+            ng-required = "isRequired('name')"
+          )
+
+          .input-group-btn
+            button.btn.btn-default(
+              type = "submit"
+              ng-disabled = "isDisabled('name')"
+            ) Add
+
+      form.form-group(
+        ng-submit = "addAttribute('description')"
+        name = "forms.description"
+        ng-class = "{ 'has-error': forms.description.$invalid && forms.description.value.$touched }"
+      )
+        label.control-label(
+          for = "widget_description"
+        ) Description
+
+        .input-group
+          input.form-control(
+            id = "widget_description"
+            name = "value"
+            type = "text"
+            ng-model = "attributes.description"
+            ng-required = "isRequired('description')"
+          )
+
+          .input-group-btn
+            button.btn.btn-default(
+              type = "submit"
+              ng-disabled = "isDisabled('description')"
+            ) Add
+
+    .col-lg-4.col-md-4.col-sm-6
+      .panel.panel-default
+        .panel-heading
+            h4.panel-title {{permutations.length}} Widgets Built
+
+        .panel-body
+          .panel.panel-default
+            .panel-heading
+              strong Name ({{permutable_attributes.name.length}})
+
+            ul.list-group
+              li.list-group-item(
+                ng-repeat = "name in permutable_attributes.name"
+              )
+                span {{name}}
+                button.btn.close(
+                  ng-click = "removeAttribute('name', $index)"
+                ) &times;
+
+          .panel.panel-default
+            .panel-heading
+              strong Description ({{permutable_attributes.description.length}})
+
+            ul.list-group
+              li.list-group-item(
+                ng-repeat = "description in permutable_attributes.description"
+              )
+                span {{description}}
+                button.btn.close(
+                  ng-click = "removeAttribute('description', $index)"
+                ) &times;
+
+        .panel-footer
+          .btn-group
+            button.btn.btn-primary(
+              type = "button"
+              ng-click = "createPermutations()"
+              ng-disabled = "permutations.length === 0"
+            ) Submit
+
+            button.btn.btn-default(
+              type = "button"
+              ng-click = "initialize()"
+              ng-disabled = "permutations.length === 0"
+            ) Reset
