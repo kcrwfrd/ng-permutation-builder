@@ -19,4 +19,8 @@ angular.module 'app.permutation'
 ) ->
   @permutable_attributes = $scope.service.permutable_attributes
 
-  @addAttribute = angular.bind $scope.service, $scope.service.addAttribute
+  @addAttribute =
+    angular.bind $scope.service, $scope.service.addAttribute
+
+  @removeAttribute =
+    angular.bind $scope.service, $scope.service.removeAttribute

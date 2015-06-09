@@ -1,0 +1,13 @@
+.panel.panel-default
+  .panel-heading
+    strong(ng-transclude)
+    strong &nbsp;({{permutable_attribute.length}})
+
+  ul.list-group
+    li.list-group-item(
+      ng-repeat = "attribute in permutable_attribute"
+    )
+      span {{attribute}}
+      button.btn.close(
+        ng-click = "removeAttribute($index)"
+      ) &times;
