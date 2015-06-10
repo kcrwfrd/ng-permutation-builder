@@ -3,6 +3,46 @@
     .col-md-12
       p.lead Let's build some widgets.
 
-  kc-widget-form(
-    on-submit = "submit($widgets)"
+  kc-permutation-builder(
+    service = "WidgetBuilderService"
   )
+    .row
+      .col-lg-6.col-md-8.col-sm-6
+          kc-permutable-input(
+            name = "name"
+            type = "text"
+            required
+          ) Name
+
+          kc-permutable-input(
+            name = "description"
+            type = "text"
+          ) Description
+
+      .col-lg-4.col-md-4.col-sm-6
+        .panel.panel-default
+          .panel-heading
+            h4.panel-title {{WidgetBuilderService.permutations.length}} Widgets Built
+
+          .panel-body
+            kc-permutable-attribute(
+              name = "name"
+            ) Name
+
+            kc-permutable-attribute(
+              name = "description"
+            ) Description
+
+          .panel-footer
+            .btn-group
+              button.btn.btn-primary(
+                type = "button"
+                ng-click = "submit()"
+                ng-disabled = "WidgetBuilderService.permutations.length === 0"
+              ) Submit
+
+              button.btn.btn-default(
+                type = "button"
+                ng-click = "WidgetBuilderService.initialize()"
+                ng-disabled = "WidgetBuilderService.permutations.length === 0"
+              ) Reset

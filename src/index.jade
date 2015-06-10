@@ -17,13 +17,23 @@ html(
         .navbar-header
           a.navbar-brand(ui-sref="home") The Widget Factory
 
-        .navbar-collapse.navbar-right
+        .navbar-collapse
           ul.nav.navbar-nav
             li(ui-sref-active="active")
               a(ui-sref="home") Home
 
+            li(ui-sref-active="active")
+              a(ui-sref="spaghetti-widget-builder") Spaghetti Widget Builder
+
             li(ui-sref-active = "active")
               a(ui-sref="widget-builder") Widget Builder
+
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(
+                href = "https://github.com/kvcrawford/ng-permutation-builder"
+              ) Github&nbsp;
+                span.glyphicon.glyphicon-new-window
 
     div(ui-view="main")
 

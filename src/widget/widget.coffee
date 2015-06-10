@@ -12,3 +12,10 @@ angular.module 'app.widget', [
       'main':
         controller: 'WidgetBuilderController'
         templateUrl: '/widget/widget-builder.html'
+
+  $stateProvider.state 'spaghetti-widget-builder',
+    url: '/spaghetti-widget-builder'
+    views:
+      'main':
+        controller: 'SpaghettiWidgetBuilderController'
+        templateUrl: '/widget/spaghetti-widget-builder.html'

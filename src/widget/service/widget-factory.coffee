@@ -7,7 +7,6 @@ Where widgets get widgetized.
 angular.module 'app.widget'
 .factory 'widgetFactory', (
   permutationFactory
-  Widget
 ) ->
 
   build: (attributes) ->
@@ -15,6 +14,17 @@ angular.module 'app.widget'
     # instantiate a model constructor, etc.
 
     return attributes
+
+  ###
+  @name validate
+  @description
+  A widget must have at least a name.
+
+  @returns {Boolean}
+  ###
+
+  validate: (attributes) ->
+    return attributes.name?.length > 0
 
   ###
   @name buildPermutations

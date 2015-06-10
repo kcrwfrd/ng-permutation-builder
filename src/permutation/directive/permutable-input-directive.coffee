@@ -1,12 +1,15 @@
 ###
 @name kcPermutableInput
+@description
+Encapsulates view logic for permutable inputs, and makes for flexible, reusable
+components that we can reuse for any type of permutable resource.
 
 @param {String} name - Permutable attribute key
 ###
 
 angular.module 'app.permutation'
 .directive 'kcPermutableInput', ->
-  require: '^kcPermutableAttributes'
+  require: '^kcPermutationBuilder'
   restrict: 'E'
   templateUrl: '/permutation/_permutable-input.html'
   transclude: true
@@ -14,7 +17,7 @@ angular.module 'app.permutation'
   scope:
     name: '@name'
 
-  link: (scope, element, attrs, kcPermutableAttributesController) ->
+  link: (scope, element, attrs, kcPermutationBuilder) ->
     # Ensure input IDs are unique
     scope.input_id = _.uniqueId 'permutatable_input_'
 
@@ -25,12 +28,20 @@ angular.module 'app.permutation'
     scope.isDisabled = ->
       return _.isEmpty scope.state.value
 
+    ###
+    @name isRequired
+    @description
+    An input is no longer required if at least 1 value has already been entered
+
+    @returns {Boolean}
+    ###
+
     scope.isRequired = ->
       return attrs.required? and
-        kcPermutableAttributesController.permutable_attributes[scope.name].length is 0
+        kcPermutationBuilder.permutable_attributes[scope.name].length is 0
 
     scope.submit = ->
-      is_added = kcPermutableAttributesController.addAttribute(
+      is_added = kcPermutationBuilder.addAttribute(
         scope.name
         scope.state.value
       )
