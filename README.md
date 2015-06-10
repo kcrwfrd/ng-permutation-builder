@@ -1,5 +1,7 @@
 This repo serves as a case study of a real-world UI problem, demonstrating how one might refactor a bloated controller into reusable layers that are easier to maintain.
 
+See the working demo at http://kvcrawford.github.io/ng-permutation-builder/
+
 ## The User Story
 > Jill works for *The Widget Factory*, a company in the business of making widgets. Oftentimes, she wants to be able to test how slightly different widgets perform against each other.
 
