@@ -1,8 +1,10 @@
 ###
 @name WidgetBuilderService
 @description
-Instance of a PermutationBuilderService subclass.
+Extends PermutationBuilderService for use with widgets.
 Drives the business logic of the widget builder UI flow.
+
+NOTE: injection returns an instance, not the constructor (see end of file).
 ###
 
 angular.module 'app.widget'
@@ -13,6 +15,13 @@ angular.module 'app.widget'
   $q
 ) ->
   class WidgetBuilderService extends PermutationBuilderService
+
+    ###
+    @name initialize
+    @description
+    Defines permutable attributes for widgets.
+    ###
+
     initialize: ->
       super
 
@@ -30,6 +39,14 @@ angular.module 'app.widget'
       super
 
       @permutations = _.filter @permutations, widgetFactory.validate
+
+    ###
+    @name createPermutations
+    @description
+    Specifies how a permutation gets persisted.
+
+    @returns {Promise} - Fulfilled with the newly created permutations.
+    ###
 
     createPermutations: ->
       # Grab the permutations before we empty them
