@@ -43,4 +43,4 @@ angular.module 'app.widget'
 
       return $q.when permutations
 
-  return new WidgetBuilderService
+  return new WidgetBuilderService()
