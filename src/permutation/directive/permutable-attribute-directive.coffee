@@ -5,6 +5,13 @@ Displays the values entered for a permutable attribute.
 Allows user to remove a value.
 
 @param {String} name - Permutable attribute key
+
+@example
+```jade
+kc-permutable-attribute(
+  name="description"
+) Description
+```
 ###
 
 angular.module 'app.permutation'
