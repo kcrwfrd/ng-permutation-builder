@@ -1,9 +1,7 @@
 angular.module 'app.widget'
-
 .controller 'WidgetBuilderController', (
   $scope
   $state
-  widgetStore
   WidgetBuilderService
 ) ->
   $scope.WidgetBuilderService = WidgetBuilderService
