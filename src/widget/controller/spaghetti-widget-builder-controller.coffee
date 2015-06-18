@@ -28,8 +28,15 @@ angular.module 'app.widget'
   # Placeholder object to hold references for our ngForm instances
   $scope.forms = {}
 
-  # This defines the method and immediately invokes it.
-  # That way we can reset state if the user hits the reset button.
+  ###
+  @name initialize
+  @description
+  Resets state, called if the user hits the reset button.
+
+  The `do` immediately invokes our method to initialize state when
+  controller first loads.
+  ###
+
   do $scope.initialize = ->
     $scope.permutations = []
 
@@ -49,7 +56,12 @@ angular.module 'app.widget'
     name: true
     description: false
 
-  # Private function called every time an attribute is added or removed
+  ###
+  @name buildPermutations
+  @description
+  Private function called every time an attribute is added or removed.
+  ###
+
   buildPermutations = ->
     $scope.permutations.length = 0
 
@@ -59,10 +71,24 @@ angular.module 'app.widget'
       if widgetFactory.validate permutation
         $scope.permutations.push permutation
 
+  ###
+  @name createPermutations
+  @description
+  Persists the permutations and redirects to home page.
+  ###
+
   $scope.createPermutations = ->
     widgetStore.addWidgets $scope.permutations
 
     $state.go 'home'
+
+  ###
+  @name addAttribute
+  @description
+  Adds an attribute to generate permutations from, then empties the form input.
+
+  @param {String} key - Attribute name
+  ###
 
   $scope.addAttribute = (key) ->
     # Tokenize the value
@@ -73,16 +99,45 @@ angular.module 'app.widget'
 
     buildPermutations()
 
-  # This view logic would fit much more nicely in a directive.
+  ###
+  @name isRequired
+  @description
+  Used with ng-required, determines if at least 1 value has been entered or not.
+  This view logic would fit much more nicely in a directive.
+
+  @param {String} key - Attribute name
+
+  @returns {Boolean}
+  ###
+
   $scope.isRequired = (key) ->
     return (
       $scope.required[key] and
       $scope.permutable_attributes[key].length is 0
     )
 
-  # And so would this.
+  ###
+  @name isDisabled
+  @description
+  We don't want the submit button to be enabled if input is empty.
+  Also a good candidate for inclusion in a directive.
+
+  @param {String} key - Attribute name
+
+  @returns {Boolean}
+  ###
+
   $scope.isDisabled = (key) ->
     return _.isEmpty $scope.attributes[key]
+
+  ###
+  @name removeAttribute
+  @description
+  Removes a permutable attribute, then re-generates permutations.
+
+  @param {String} key - Attribute name
+  @param {Integer} index - Index in the permutable attribute array.
+  ###
 
   $scope.removeAttribute = (key, index) ->
     $scope.permutable_attributes[key].splice index, 1
