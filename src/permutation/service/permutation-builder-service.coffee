@@ -1,3 +1,9 @@
+###
+@name PermutationBuilderService
+@description
+A base class that can be extended for use with different permutable resources.
+###
+
 angular.module 'app.permutation'
 .factory 'PermutationBuilderService', (
   permutationFactory
@@ -27,6 +33,9 @@ angular.module 'app.permutation'
     @name addAttribute
     @description
     Adds a permutable attribute
+
+    @param {String} key - Name of attribute
+    @param {String|Number|Object|Array} value - Can be of any type
 
     @returns {Boolean} Whether attribute was added successfully or not.
     ###
@@ -72,8 +81,7 @@ angular.module 'app.permutation'
     ###
     @name createPermutations
     @description
-    Issues a request to persist permutations.
-    Override this method to define how a permutable resource gets persisted.
+    Abstract method. Override to define how a permutable resource gets persisted.
     ###
 
     createPermutations: ->
@@ -82,6 +90,9 @@ angular.module 'app.permutation'
     @name removeAttribute
     @description
     Removes a permutable attribute by index
+
+    @param {String} key - Attribute name
+    @param {Integer} index - Index of value in the permutable attribute array.
 
     @returns {Boolean} - true if item successfully removed
     ###
