@@ -21,5 +21,13 @@ angular.module 'app.permutation'
     scope.permutable_attribute =
       kcPermutationBuilder.permutable_attributes[scope.name]
 
+    ###
+    @name removeAttribute
+    @description
+    Calls on service to remove attribute.
+
+    @param {Integer} index - Value's index in the permutable attribute array.
+    ###
+
     scope.removeAttribute = (index) ->
       kcPermutationBuilder.removeAttribute scope.name, index
