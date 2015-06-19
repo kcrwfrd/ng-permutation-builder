@@ -1,3 +1,9 @@
+###
+@name permutationFactory
+@description
+Utility service for generating permutations of a resource.
+###
+
 angular.module 'app.permutation'
 .factory 'permutationFactory', ->
 
@@ -11,6 +17,8 @@ angular.module 'app.permutation'
 
   @callback callback
   @param {Object} permutation
+
+  @returns {Array} - Collection of permutations
   ###
 
   permute: (permutable_attributes, callback) ->
