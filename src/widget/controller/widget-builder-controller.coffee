@@ -1,8 +1,8 @@
 ###
 @name WidgetBuilderController
 @description
-Our controller becomes a very thin layer that binds what we need to the view,
-and handles a minimal amount of logic.
+Our controller and its template become a very thin layer that
+glue the pieces together.
 ###
 
 angular.module 'app.widget'

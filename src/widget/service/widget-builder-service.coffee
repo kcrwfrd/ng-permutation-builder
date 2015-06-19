@@ -33,12 +33,16 @@ angular.module 'app.widget'
     @name buildPermutations
     @description
     Here, we extend the base method to ensure that we only build valid widgets.
+
+    @returns {Array} Collection of permutations
     ###
 
     buildPermutations: ->
       super
 
       @permutations = _.filter @permutations, widgetFactory.validate
+
+      return @permutations
 
     ###
     @name createPermutations
