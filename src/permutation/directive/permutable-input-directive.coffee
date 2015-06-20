@@ -1,10 +1,16 @@
 ###
 @name kcPermutableInput
 @description
-Encapsulates view logic for permutable inputs, and makes for flexible, reusable
-components that we can reuse for any type of permutable resource.
+Encapsulates templating and view logic for a permutable input, which is its
+own mini form. Makes for a flexible component that can be used to compose the
+view for any type of permutable resource.
 
 @param {String} name - Permutable attribute key
+
+@example
+```jade
+kc-permutable-input(name="title", type="text", required)
+```
 ###
 
 angular.module 'app.permutation'
@@ -25,13 +31,21 @@ angular.module 'app.permutation'
       value: ''
       is_required: attrs.required?
 
+    ###
+    @name isDisabled
+    @description
+    We don't want the submit button to be enabled if input is empty.
+
+    @returns {Boolean}
+    ###
+
     scope.isDisabled = ->
       return _.isEmpty scope.state.value
 
     ###
     @name isRequired
     @description
-    An input is no longer required if at least 1 value has already been entered
+    An input is no longer required if at least 1 value has already been entered.
 
     @returns {Boolean}
     ###
@@ -39,6 +53,12 @@ angular.module 'app.permutation'
     scope.isRequired = ->
       return attrs.required? and
         kcPermutationBuilder.permutable_attributes[scope.name].length is 0
+
+    ###
+    @name submit
+    @description
+    Adds attribute and clears the input.
+    ###
 
     scope.submit = ->
       is_added = kcPermutationBuilder.addAttribute(
